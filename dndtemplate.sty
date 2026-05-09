@@ -9,7 +9,30 @@
 \usepackage{ragged2e}
 
 % DEFINE FONT FOR USER INPUTTED TEXT
-\newfontfamily\entryfont{Kalam}[Path=template/fonts/,Extension=.ttf,UprightFont=Kalam-Regular,BoldFont=Kalam-Bold]
+\ifPDFTeX
+  \newcommand{\entryfont}{\sffamily}
+\else
+  \newfontfamily\entryfont{Kalam}[
+    Path=template/fonts/,
+    Extension=.ttf,
+    UprightFont=Kalam-Regular,
+    BoldFont=Kalam-Bold,
+    % If Kalam fails to provide a glyph, fontspec will usually warn.
+    % We can't easily do per-script fallbacks without more complexity.
+    % But we can at least ensure we are using a Unicode engine.
+  ]
+  % If we are in Ukrainian, Kalam won't work. Let's provide a better default if needed.
+  \AtBeginDocument{
+    \@ifpackageloaded{babel}{
+      \iflanguage{ukrainian}{
+        \setfontfamily\entryfont{DejaVu Sans}
+      }{}
+      \iflanguage{russian}{
+        \setfontfamily\entryfont{DejaVu Sans}
+      }{}
+    }{}
+  }
+\fi
 
 % HEADER BACKGROUND COLOR AND OPACITY
 \newrgbcolor{header-background-color}{0.87058824 0.87450981 0.87450981}

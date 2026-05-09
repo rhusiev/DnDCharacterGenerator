@@ -7,19 +7,33 @@
 \RequirePackage{Royal}
 \RequirePackage[auto]{contour}
 
+\RequirePackage{iftex}
+
 \bool_if:NT \l__dnd_layout_bool
   {
-    \RequirePackage{bookman}
-    \RequirePackage[type1]{gillius2}
-    \RequirePackage[notext,nomath,nott]{kpfonts}
-    \RequirePackage[T1]{fontenc}
-    \renewcommand{\sfdefault}{jkpss}
+    \ifPDFTeX
+      \RequirePackage{bookman}
+      \RequirePackage[type1]{gillius2}
+      \RequirePackage[notext,nomath,nott]{kpfonts}
+      \RequirePackage[T1]{fontenc}
+      \renewcommand{\sfdefault}{jkpss}
+    \else
+      \RequirePackage{fontspec}
+      % For D&D look in LuaLaTeX, we'd ideally want OTF versions of these.
+      % But to ensure it works, we set Unicode fonts that have good coverage.
+      \setmainfont{DejaVu Serif}
+      \setsansfont{DejaVu Sans}
+    \fi
   }
 
 \cs_new_protected:Npn \__dnd_sf_initial_family:
   {
     \bool_if:NTF \l__dnd_layout_bool
-      { \gilliustwo }
+      {
+        \cs_if_exist:NTF \gilliustwo
+          { \gilliustwo }
+          { \sffamily }
+      }
       { \sffamily }
   }
 
