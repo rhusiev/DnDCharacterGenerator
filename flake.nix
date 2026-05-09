@@ -164,10 +164,10 @@
     in rec {
       packages =
         pkgs.lib.recursiveUpdate {
-          default = (build_from_directory "characters").combined;
+          default = (build_from_directory ".").combined;
           test = (build_from_directory "tests").combined;
         }
-        (build_from_directory "characters").individual;
+        (build_from_directory ".").individual;
 
       devShells.default = pkgs.mkShell (pkgs.lib.recursiveUpdate {
           packages = with pkgs; [

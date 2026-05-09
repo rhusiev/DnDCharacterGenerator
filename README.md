@@ -19,7 +19,7 @@
 
 ### Building a character sheet
 
-It is recommended to look at pre-existing character sheets in the `characters` directory when using this repository for the first time, each text input area of the character sheet is fillable with functions defined in the template, however it may require some trial and error to have the sheet looking as you intend.
+It is recommended to look at pre-existing character sheets in the root directory when using this repository for the first time, each text input area of the character sheet is fillable with functions defined in the template, however it may require some trial and error to have the sheet looking as you intend.
 
 ## Compilation
 
@@ -32,7 +32,16 @@ Steps for running on Overleaf:
 * Create a new project in Overleaf via a zip upload
 * Change the the engine to `LuaLaTeX`
 
-You should then be able to compile any of the example characters in the `characters/` directory.
+You should then be able to compile any of the example character `.tex` files in the root directory.
+
+### Fedora / Rubber
+
+On Fedora Linux, you can use `rubber` to compile the sheets. The project is configured to use `LuaLaTeX` via `rubber` directives.
+
+```console
+make pdf CHARACTER=aaliyah   # Compiles aaliyah.tex to aaliyah.pdf
+make all_pdfs                # Compiles all .tex files in the root
+```
 
 ### Nix
 
@@ -57,7 +66,7 @@ make develop                             # Will drop you into a shell with all d
 
 ### GitHub Action
 
-This repository contains a GitHub action which will build all pages in the `characters/` directory and upload them as an artifact to the workflow run.
+This repository contains a GitHub action which will build all character pages in the root and upload them as an artifact to the workflow run.
 
 ## Customisation
 
