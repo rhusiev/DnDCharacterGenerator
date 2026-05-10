@@ -1,168 +1,182 @@
+\newcommand{\multilinetext}[3]{%
+    % #1 = line spacing (e.g., 0.8)
+    % #2 = alignment (l, c, or r)
+    % #3 = the text content
+    {% Use a group to keep the arraystretch change local
+        \renewcommand{\arraystretch}{#1}%
+        \begin{tabular}{@{}#2@{}}%
+            #3%
+        \end{tabular}%
+    }%
+}
+
 \ExplSyntaxOn % Use tilde (~) for spaces.
 \addto\captionsukrainian
-  {
-    % Monster basics
-    \renewcommand\armorclassname{Клас~захисту}
-    \renewcommand\hitpointsname{Пункти~здоров'я}
-    \renewcommand\speedname{Швидкість}
-    % Monster ability scores
-    \renewcommand\strstatname{СИЛ}
-    \renewcommand\dexstatname{СПР}
-    \renewcommand\constatname{СТА}
-    \renewcommand\intstatname{ІНТ}
-    \renewcommand\wisstatname{МДР}
-    \renewcommand\chastatname{ХАР}
-    % Monster details
-    \renewcommand\skillsname{Навички}
-    \renewcommand\dimmname{Імунітет~до~ушкоджень}
-    \renewcommand\dvulname{Вразливість~до~ушкоджень}
-    \renewcommand\dresname{Стійкість~до~ушкоджень}
-    \renewcommand\cimmname{Імунітет~до~станів}
-    \renewcommand\savesname{Рятівні~кидки}
-    \renewcommand\sensesname{Чуття}
-    \renewcommand\defaultsensesname{пасивна~Увага~10}
-    \renewcommand\languagesname{Мови}
-    \renewcommand\challengename{Небезпека}
-    \renewcommand\xpname{ПД}
-    % Monster attack
-    \renewcommand\unitsname{ф.}
-    \renewcommand\weaponname{Зброя}
-    \renewcommand\spellname{Заклинання}
-    \renewcommand\meleeattackname{Атака~зброєю~ближнього~бою~|1|}
-    \renewcommand\rangedattackname{Далекобійна~атака~зброєю~|1|}
-    \renewcommand\meleeorrangedattackname{Атака~ближнього~або~дальнього~бою~|1|}
-    \renewcommand\orname{або}
-    \renewcommand\tohitname{|1|~до~влучання}
-    \renewcommand\defaulttargetsname{одна~ціль}
-    \renewcommand\reachname{досяжність}
-    \renewcommand\rangename{відстань}
-    \renewcommand\hitname{Влучання}
-    \renewcommand\damagename{ушкодження}
-    \renewcommand\plusname{плюс}
-    % Spell levels
-    \renewcommand\spellcantripsname{Замовляння}
-    \renewcommand\spellfirstlevelname{1-й~рівень}
-    \renewcommand\spellsecondlevelname{2-й~рівень}
-    \renewcommand\spellthirdlevelname{3-й~рівень}
-    \renewcommand\spellfourthlevelname{4-й~рівень}
-    \renewcommand\spellfifthlevelname{5-й~рівень}
-    \renewcommand\spellsixthlevelname{6-й~рівень}
-    \renewcommand\spellseventhlevelname{7-й~рівень}
-    \renewcommand\spelleighthlevelname{8-й~рівень}
-    \renewcommand\spellninthlevelname{9-й~рівень}
-    % Spell slots
-    \renewcommand\spellatwillname{довільно}
-    \renewcommand\spelloneslotname{1~чарунка}
-    \renewcommand\spelltwoslotsname{2~чарунки}
-    \renewcommand\spellthreeslotsname{3~чарунки}
-    \renewcommand\spellfourslotsname{4~чарунки}
-    % Innate spellcasting
-    \renewcommand\innateatwillname{Довільно}
-    \renewcommand\numberperdayname{|1|/день}
-    \renewcommand\numberperdayeachname{|1|/день~кожна}
-%    % Spell header
-    \renewcommand\spellcastingtimename{Час~створення}
-    \renewcommand\spellrangename{Відстань}
-    \renewcommand\spellcomponentsname{Складові}
-    \renewcommand\spelldurationname{Тривалість}
-%    % Miscellaneous
-    \renewcommand\pageabbreviationname{стор.}
-    \renewcommand\dname{к}
-    % Character Sheet Labels
-    \renewcommand\characternameatname{ІМ'Я~ПЕРСОНАЖА}
-    \renewcommand\classlevelatname{КЛАС~ТА~РІВЕНЬ}
-    \renewcommand\backgroundatname{ПЕРЕДІСТОРІЯ}
-    \renewcommand\playernameatname{ІМ'Я~ГРАВЦЯ}
-    \renewcommand\raceatname{РАСА}
-    \renewcommand\alignmentatname{СВІТОГЛЯД}
-    \renewcommand\experiencepointsatname{ПУНКТИ~ДОСВІДУ}
-    \renewcommand\strengthatname{СИЛА}
-    \renewcommand\dexterityatname{СПРИТНІСТЬ}
-    \renewcommand\constitutionatname{СТАТУРА}
-    \renewcommand\intelligenceatname{ІНТЕЛЕКТ}
-    \renewcommand\wisdomatname{МУДРІСТЬ}
-    \renewcommand\charismaatname{ХАРИЗМА}
-    \renewcommand\inspirationatname{НАТХНЕННЯ}
-    \renewcommand\proficiencybonusatname{БОНУС~МАЙСТЕРНОСТІ}
-    \renewcommand\savingthrowsatname{РЯТІВНІ~КИДКИ}
-    \renewcommand\acrobaticsatname{Акробатика}
-    \renewcommand\animalhandlingatname{Приборкання~тварин}
-    \renewcommand\arcanaatname{Аркана}
-    \renewcommand\athleticsatname{Атлетика}
-    \renewcommand\deceptionatname{Обман}
-    \renewcommand\historyatname{Історія}
-    \renewcommand\insightatname{Здогадливість}
-    \renewcommand\intimidationatname{Залякування}
-    \renewcommand\investigationatname{Розслідування}
-    \renewcommand\medicineatname{Медицина}
-    \renewcommand\natureatname{Природа}
-    \renewcommand\perceptionatname{Увага}
-    \renewcommand\performanceatname{Артистичність}
-    \renewcommand\persuasionatname{Переконливість}
-    \renewcommand\religionatname{Релігія}
-    \renewcommand\sleightofhandatname{Спритність~рук}
-    \renewcommand\stealthatname{Непомітність}
-    \renewcommand\survivalatname{Виживання}
-    \renewcommand\skillsatname{НАВИЧКИ}
-    \renewcommand\passiveperceptionatname{ПАСИВНА~УВАГА}
-    \renewcommand\otherproficienciesatname{ІНШІ~УМІННЯ~ТА~ЗНАННЯ~МОВ}
-    \renewcommand\armorclassatname{КЛАС}
-    \renewcommand\armorclassatnamealt{ЗАХИСТУ}
-    \renewcommand\initiativeatname{ІНІЦІАТИВА}
-    \renewcommand\speedatname{ШВИДКІСТЬ}
-    \renewcommand\hpmaxatname{Максимум~пунктів~здоров'я}
-    \renewcommand\currenthpatname{ПОТОЧНІ~ПУНКТИ~ЗДОРОВ'Я}
-    \renewcommand\temphpatname{ТИМЧАСОВІ~ПУНКТИ~ЗДОРОВ'Я}
-    \renewcommand\totalatname{Усього}
-    \renewcommand\hitdiceatname{КУБИКИ~ЗДОРОВ'Я}
-    \renewcommand\successesatname{УСПІХИ}
-    \renewcommand\failuresatname{НЕВДАЧІ}
-    \renewcommand\deathsavesatname{РЯТУНОК~ВІД~СМЕРТІ}
-    \renewcommand\attackscastingatname{АТАКИ~ТА~ЗАКЛИНАННЯ}
-    \renewcommand\cpatname{мм}
-    \renewcommand\spatname{см}
-    \renewcommand\epatname{ем}
-    \renewcommand\gpatname{зм}
-    \renewcommand\ppatname{пм}
-    \renewcommand\equipmentatname{СПОРЯДЖЕННЯ}
-    \renewcommand\personalitytraitsatname{РИСИ~ХАРАКТЕРУ}
-    \renewcommand\idealsatname{ІДЕАЛИ}
-    \renewcommand\bondsatname{ПРИВ'ЯЗАНОСТІ}
-    \renewcommand\flawsatname{СЛАБКОСТІ}
-    \renewcommand\featurestraitsatname{УМІННЯ~ТА~ОСОБЛИВОСТІ}
-    % Background Sheet Labels
-    \renewcommand\ageatname{ВІК}
-    \renewcommand\heightatname{ЗРІСТ}
-    \renewcommand\weightatname{ВАГА}
-    \renewcommand\eyesatname{ОЧІ}
-    \renewcommand\skinatname{ШКІРА}
-    \renewcommand\hairatname{ВОЛОССЯ}
-    \renewcommand\appearanceatname{ЗОВНІШНІСТЬ~ПЕРСОНАЖА}
-    \renewcommand\additionalfeaturesatname{ДОДАТКОВІ~УМІННЯ~ТА~ОСОБЛИВОСТІ}
-    \renewcommand\characterbackgroundatname{ІСТОРІЯ~ПЕРСОНАЖА}
-    \renewcommand\treasureatname{СКАРБИ}
-    \renewcommand\alliesatname{СОЮЗНИКИ~ТА~ОРГАНІЗАЦІЇ}
-    \renewcommand\organizationnameatname{НАЗВА}
-    \renewcommand\organizationsymbolatname{СИМВОЛ}
+{
+	% Monster basics
+	\renewcommand\armorclassname{Клас~захисту}
+	\renewcommand\hitpointsname{ПЗ}
+	\renewcommand\speedname{Швидкість}
+	% Monster ability scores
+	\renewcommand\strstatname{СИЛ}
+	\renewcommand\dexstatname{СПР}
+	\renewcommand\constatname{СТА}
+	\renewcommand\intstatname{ІНТ}
+	\renewcommand\wisstatname{МДР}
+	\renewcommand\chastatname{ХАР}
+	% Monster details
+	\renewcommand\skillsname{Навички}
+	\renewcommand\dimmname{Імунітет~до~ушкоджень}
+	\renewcommand\dvulname{Вразливість~до~ушкоджень}
+	\renewcommand\dresname{Стійкість~до~ушкоджень}
+	\renewcommand\cimmname{Імунітет~до~станів}
+	\renewcommand\savesname{Рятівні~кидки}
+	\renewcommand\sensesname{Чуття}
+	\renewcommand\defaultsensesname{пасивна~Увага~10}
+	\renewcommand\languagesname{Мови}
+	\renewcommand\challengename{Небезпека}
+	\renewcommand\xpname{ПД}
+	% Monster attack
+	\renewcommand\unitsname{ф.}
+	\renewcommand\weaponname{Зброя}
+	\renewcommand\spellname{Заклинання}
+	\renewcommand\meleeattackname{Атака~зброєю~ближнього~бою~|1|}
+	\renewcommand\rangedattackname{Далекобійна~атака~зброєю~|1|}
+	\renewcommand\meleeorrangedattackname{Атака~ближнього~або~дальнього~бою~|1|}
+	\renewcommand\orname{або}
+	\renewcommand\tohitname{|1|~до~влучання}
+	\renewcommand\defaulttargetsname{одна~ціль}
+	\renewcommand\reachname{досяжність}
+	\renewcommand\rangename{відстань}
+	\renewcommand\hitname{Влучання}
+	\renewcommand\damagename{ушкодження}
+	\renewcommand\plusname{плюс}
+	% Spell levels
+	\renewcommand\spellcantripsname{Замовляння}
+	\renewcommand\spellfirstlevelname{1-й~рівень}
+	\renewcommand\spellsecondlevelname{2-й~рівень}
+	\renewcommand\spellthirdlevelname{3-й~рівень}
+	\renewcommand\spellfourthlevelname{4-й~рівень}
+	\renewcommand\spellfifthlevelname{5-й~рівень}
+	\renewcommand\spellsixthlevelname{6-й~рівень}
+	\renewcommand\spellseventhlevelname{7-й~рівень}
+	\renewcommand\spelleighthlevelname{8-й~рівень}
+	\renewcommand\spellninthlevelname{9-й~рівень}
+	% Spell slots
+	\renewcommand\spellatwillname{довільно}
+	\renewcommand\spelloneslotname{1~чарунка}
+	\renewcommand\spelltwoslotsname{2~чарунки}
+	\renewcommand\spellthreeslotsname{3~чарунки}
+	\renewcommand\spellfourslotsname{4~чарунки}
+	% Innate spellcasting
+	\renewcommand\innateatwillname{Довільно}
+	\renewcommand\numberperdayname{|1|/день}
+	\renewcommand\numberperdayeachname{|1|/день~кожна}
+	%    % Spell header
+	\renewcommand\spellcastingtimename{Час~створення}
+	\renewcommand\spellrangename{Відстань}
+	\renewcommand\spellcomponentsname{Складові}
+	\renewcommand\spelldurationname{Тривалість}
+	%    % Miscellaneous
+	\renewcommand\pageabbreviationname{стор.}
+	\renewcommand\dname{к}
+	% Character Sheet Labels
+	\renewcommand\characternameatname{ІМ'Я~ПЕРСОНАЖА}
+	\renewcommand\classlevelatname{КЛАС~ТА~РІВЕНЬ}
+	\renewcommand\backgroundatname{ПЕРЕДІСТОРІЯ}
+	\renewcommand\playernameatname{ІМ'Я~ГРАВЦЯ}
+	\renewcommand\raceatname{РАСА}
+	\renewcommand\alignmentatname{СВІТОГЛЯД}
+	\renewcommand\experiencepointsatname{ПУНКТИ~ДОСВІДУ}
+	\renewcommand\strengthatname{СИЛА}
+	\renewcommand\dexterityatname{СПРИТНІСТЬ}
+	\renewcommand\constitutionatname{СТАТУРА}
+	\renewcommand\intelligenceatname{ІНТЕЛЕКТ}
+	\renewcommand\wisdomatname{МУДРІСТЬ}
+	\renewcommand\charismaatname{ХАРИЗМА}
+	\renewcommand\inspirationatname{НАТХНЕННЯ}
+	\renewcommand\proficiencybonusatname{
+        \multilinetext{0.7}{c}{БОНУС\\МАЙСТЕРНОСТІ}
+	}
+	\renewcommand\savingthrowsatname{РЯТІВНІ~КИДКИ}
+	\renewcommand\acrobaticsatname{Акробатика}
+    \renewcommand\animalhandlingatname{\multilinetext{0.75}{l}{Приборкання\\тварин}}
+	\renewcommand\arcanaatname{Аркана}
+	\renewcommand\athleticsatname{Атлетика}
+	\renewcommand\deceptionatname{Обман}
+	\renewcommand\historyatname{Історія}
+	\renewcommand\insightatname{Здогадливість}
+	\renewcommand\intimidationatname{Залякування}
+	\renewcommand\investigationatname{Розслідування}
+	\renewcommand\medicineatname{Медицина}
+	\renewcommand\natureatname{Природа}
+	\renewcommand\perceptionatname{Увага}
+	\renewcommand\performanceatname{Артистичність}
+	\renewcommand\persuasionatname{Переконливість}
+	\renewcommand\religionatname{Релігія}
+    \renewcommand\sleightofhandatname{\multilinetext{0.75}{l}{Спритність\\рук}}
+	\renewcommand\stealthatname{Непомітність}
+	\renewcommand\survivalatname{Виживання}
+	\renewcommand\skillsatname{НАВИЧКИ}
+	\renewcommand\passiveperceptionatname{ПАСИВНА~УВАГА}
+	\renewcommand\otherproficienciesatname{ІНШІ~УМІННЯ~ТА~ЗНАННЯ~МОВ}
+	\renewcommand\armorclassatname{КЛАС}
+    \renewcommand\armorclassatnamealt{\scalebox{0.85}{ЗАХ.}}
+    \renewcommand\initiativeatname{\scalebox{0.75}{ІНІЦІАТИВА}}
+    \renewcommand\speedatname{\scalebox{0.85}{ШВИДКІСТЬ}}
+	\renewcommand\hpmaxatname{Максимум~ПЗ}
+	\renewcommand\currenthpatname{ПОТОЧНІ~ПЗ}
+	\renewcommand\temphpatname{ТИМЧАСОВІ~ПЗ}
+	\renewcommand\totalatname{Усього}
+    \renewcommand\hitdiceatname{\scalebox{0.85}{КУБИКИ~ЗДОРОВ'Я}}
+	\renewcommand\successesatname{УСПІХИ}
+	\renewcommand\failuresatname{НЕВДАЧІ}
+    \renewcommand\deathsavesatname{\scalebox{0.85}{РЯТУНОК~ВІД~СМЕРТІ}}
+	\renewcommand\attackscastingatname{АТАКИ~ТА~ЗАКЛИНАННЯ}
+	\renewcommand\cpatname{мм}
+	\renewcommand\spatname{см}
+	\renewcommand\epatname{ем}
+	\renewcommand\gpatname{зм}
+	\renewcommand\ppatname{пм}
+	\renewcommand\equipmentatname{СПОРЯДЖЕННЯ}
+	\renewcommand\personalitytraitsatname{РИСИ~ХАРАКТЕРУ}
+	\renewcommand\idealsatname{ІДЕАЛИ}
+	\renewcommand\bondsatname{ПРИВ'ЯЗАНОСТІ}
+	\renewcommand\flawsatname{СЛАБКОСТІ}
+	\renewcommand\featurestraitsatname{УМІННЯ~ТА~ОСОБЛИВОСТІ}
+	% Background Sheet Labels
+	\renewcommand\ageatname{ВІК}
+	\renewcommand\heightatname{ЗРІСТ}
+	\renewcommand\weightatname{ВАГА}
+	\renewcommand\eyesatname{ОЧІ}
+	\renewcommand\skinatname{ШКІРА}
+	\renewcommand\hairatname{ВОЛОССЯ}
+	\renewcommand\appearanceatname{ЗОВНІШНІСТЬ~ПЕРСОНАЖА}
+	\renewcommand\additionalfeaturesatname{ДОДАТКОВІ~УМІННЯ~ТА~ОСОБЛИВОСТІ}
+	\renewcommand\characterbackgroundatname{ІСТОРІЯ~ПЕРСОНАЖА}
+	\renewcommand\treasureatname{СКАРБИ}
+	\renewcommand\alliesatname{СОЮЗНИКИ~ТА~ОРГАНІЗАЦІЇ}
+	\renewcommand\organizationnameatname{НАЗВА}
+	\renewcommand\organizationsymbolatname{СИМВОЛ}
 
-    % Weapon Table Headers
-    \renewcommand\weaponnameatname{НАЗВА}
-    \renewcommand\atkbonusatname{БОНУС~АТАКИ}
-    \renewcommand\damagetypeatname{УШКОДЖЕННЯ/ТИП}
+	% Weapon Table Headers
+	\renewcommand\weaponnameatname{НАЗВА}
+	\renewcommand\atkbonusatname{БОНУС~АТАКИ}
+	\renewcommand\damagetypeatname{УШКОДЖЕННЯ/ТИП}
 
-    % Spell Sheet Labels
-    \renewcommand\spellcastingatname{ЧАРУВАННЯ}
-    \renewcommand\spellcastingclassatname{КЛАС}
-    \renewcommand\spellcastingabilityatname{ХАРАКТЕРИСТИКА}
-    \renewcommand\spellcastingclassheaderatname{КЛАС}
-    \renewcommand\spellcastingclasssubheaderatname{ЧАРУВАННЯ}
-    \renewcommand\spellcastingabilityheaderatname{ХАРАКТЕРИСТИКА}
-    \renewcommand\spellcastingabilitysubheaderatname{ЧАРУВАННЯ}
-    \renewcommand\spellsavedcatname{СКЛАДНІСТЬ~РЯТУНКУ}
-    \renewcommand\spellattackbonusatname{БОНУС~АТАКИ}
-    \renewcommand\spellattackbonusatnamealt{ЗАКЛЯТТЯМ}
-    \renewcommand\spellsknownatname{ВІДОМІ~ЗАКЛЯТТЯ}
-    \renewcommand\slotstotalatname{УСЬОГО~ЧАРУНКІВ}
-    \renewcommand\slotsexpendedatname{ВИТРАЧЕНО~ЧАРУНКІВ}
-    \renewcommand\cantripsatname{ЗАМОВЛЯННЯ}
-  }
+	% Spell Sheet Labels
+	\renewcommand\spellcastingatname{ЧАРУВАННЯ}
+	\renewcommand\spellcastingclassatname{КЛАС}
+	\renewcommand\spellcastingabilityatname{ХАРАКТЕРИСТИКА}
+	\renewcommand\spellcastingclassheaderatname{КЛАС}
+	\renewcommand\spellcastingclasssubheaderatname{ЧАРУВАННЯ}
+	\renewcommand\spellcastingabilityheaderatname{ХАРАКТЕРИСТИКА}
+	\renewcommand\spellcastingabilitysubheaderatname{ЧАРУВАННЯ}
+	\renewcommand\spellsavedcatname{СКЛАДНІСТЬ~РЯТУНКУ}
+	\renewcommand\spellattackbonusatname{БОНУС~АТАКИ}
+	\renewcommand\spellattackbonusatnamealt{ЗАКЛЯТТЯМ}
+	\renewcommand\spellsknownatname{ВІДОМІ~ЗАКЛЯТТЯ}
+	\renewcommand\slotstotalatname{УСЬОГО~ЧАРУНКІВ}
+	\renewcommand\slotsexpendedatname{ВИТРАЧЕНО~ЧАРУНКІВ}
+	\renewcommand\cantripsatname{ЗАМОВЛЯННЯ}
+}
