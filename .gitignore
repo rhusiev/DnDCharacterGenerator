@@ -1,3 +1,6 @@
+# WIP tex files
+/*.tex
+
 # LaTeX auxiliary files
 *.aux
 *.lof

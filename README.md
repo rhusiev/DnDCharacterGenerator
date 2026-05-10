@@ -32,7 +32,7 @@ Steps for running on Overleaf:
 * Create a new project in Overleaf via a zip upload
 * Change the the engine to `LuaLaTeX`
 
-You should then be able to compile any of the example character `.tex` files in the root directory.
+You should then be able to compile any of the example character `.tex` files that you place in the root directory.
 
 ### Fedora / Rubber
 
@@ -54,7 +54,7 @@ as described at https://nixos.wiki/wiki/Flakes#Enable_flakes.
 
 ### Makefile
 
-The example or specific character sheets can be compiled using the following `make` commands:
+The example (from `examples` directory) or specific character sheets can be compiled using the following `make` commands (put all character .tex files in the root directory before):
 
 ``` console
 make build                               # Will compile all characters

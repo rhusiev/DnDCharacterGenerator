@@ -1,7 +1,6 @@
 CHARACTER=aaliyah
 NIX_SETTINGS=--extra-experimental-features nix-command --extra-experimental-features flakes
 
-# Fedora/Rubber settings
 RUBBER=rubber -d -m lualatex --synctex --unsafe
 
 check:
@@ -10,7 +9,7 @@ check:
 build:
 	nix ${NIX_SETTINGS} build
 
-# Build a character using rubber (Fedora)
+# Build a character using rubber
 pdf:
 	${RUBBER} ${CHARACTER}.tex
 
@@ -35,3 +34,6 @@ test_ci:
 
 validate_test:
 	./scripts/check_test_output.sh
+
+clean:
+	rm -f *.aux *.lof *.lot *.toc *.out *.fls *.fmt *.fot *.cb *.cb2 .*.lb *.dvi *.xdv *-converted-to.* *.log *.synctex *.synctex\(busy\) *.synctex.gz *.synctex.gz\(busy\) *.pdfsync *.rubbercache *.fdb_latexmk
