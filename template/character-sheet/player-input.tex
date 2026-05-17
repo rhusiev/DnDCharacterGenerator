@@ -82,27 +82,47 @@
 % ATTACKS AND SPELLCASTING
 \IfPackageLoadedTF{dnd}
 {
-	\rput[lt](296,560){\parbox{167pt}{\RaggedRight\setlength{\parindent}{0pt}\entryfont
-    		\begin{DndTable}{X l >{\raggedright\arraybackslash}X}
-				\tiny \textcolor{tertiary-indicator-color}{\textsf{\weaponnameatname}}        &
-				\tiny \textcolor{tertiary-indicator-color}{\textsf{\atkbonusatname}}   &
-				\tiny \textcolor{tertiary-indicator-color}{\textsf{\damagetypeatname}}
-				\WeaponsHeld
-			\end{DndTable}
-			\textcolor{text-color}{\AttacksAdditionalValue}
-		}
+	\rput[lt](288,560){%
+		\begin{fitbox}{167pt}{6.7cm}{\normalsize}%
+			\entryfont \RaggedRight \setlength{\parindent}{0pt}%
+			\noindent%
+			\makebox[167pt][l]{%
+				\parbox{167pt}{%
+					\hbadness=10000 \hfuzz=10pt%
+					\RaggedRight\setlength{\parindent}{0pt}\entryfont
+					\begin{DndTable}{X l >{\raggedright\arraybackslash}X}
+						\tiny \textcolor{tertiary-indicator-color}{\textsf{\weaponnameatname}} &
+						\tiny \textcolor{tertiary-indicator-color}{\textsf{\atkbonusatname}}   &
+						\tiny \textcolor{tertiary-indicator-color}{\textsf{\damagetypeatname}}
+						\WeaponsHeld
+					\end{DndTable}%
+				}%
+			}%
+			\par\vspace*{-2pt}\noindent%
+			\textcolor{text-color}{\AttacksAdditionalValue}%
+		\end{fitbox}%
 	}
 }
 {
-	\rput[lt](296,552){\parbox{167pt}{\entryfont
-            \begin{tabular}{l l p{2.1cm}}
-				\tiny \textcolor{tertiary-indicator-color}{\textsf{\weaponnameatname}}        &
-				\tiny \textcolor{tertiary-indicator-color}{\textsf{\atkbonusatname}}   &
-				\tiny \textcolor{tertiary-indicator-color}{\textsf{\damagetypeatname}}
-				\WeaponsHeld
-			\end{tabular}
-			\textcolor{text-color}{\AttacksAdditionalValue}
-		}
+	\rput[lt](296,552){%
+		\begin{fitbox}{167pt}{6.7cm}{\normalsize}%
+			\entryfont \RaggedRight \setlength{\parindent}{0pt}%
+			\noindent%
+			\makebox[167pt][l]{%
+				\parbox{167pt}{%
+					\hbadness=10000 \hfuzz=10pt%
+					\entryfont
+					\begin{tabular}{l l p{2.1cm}}
+						\tiny \textcolor{tertiary-indicator-color}{\textsf{\weaponnameatname}} &
+						\tiny \textcolor{tertiary-indicator-color}{\textsf{\atkbonusatname}}   &
+						\tiny \textcolor{tertiary-indicator-color}{\textsf{\damagetypeatname}}
+						\WeaponsHeld
+					\end{tabular}%
+				}%
+			}%
+			\par\vspace*{-2pt}\noindent%
+			\textcolor{text-color}{\AttacksAdditionalValue}%
+		\end{fitbox}%
 	}
 }
 \rput[lt](37,220){\begin{fitbox}{168pt}{4.65cm}{\normalsize} \entryfont \RaggedRight\setlength{\parindent}{0pt} \textcolor{text-color}{\OtherProficienciesLanguagesValue} \end{fitbox}}
