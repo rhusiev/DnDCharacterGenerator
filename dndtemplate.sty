@@ -8,31 +8,45 @@
 \usepackage{xstring}
 \usepackage{ragged2e}
 
-% DEFINE FONT FOR USER INPUTTED TEXT
+\makeatletter
 \ifPDFTeX
   \newcommand{\entryfont}{\sffamily}
 \else
-  \newfontfamily\entryfont{Kalam}[
-    Path=template/fonts/,
-    Extension=.ttf,
-    UprightFont=Kalam-Regular,
-    BoldFont=Kalam-Bold,
-    % If Kalam fails to provide a glyph, fontspec will usually warn.
-    % We can't easily do per-script fallbacks without more complexity.
-    % But we can at least ensure we are using a Unicode engine.
-  ]
-  % If we are in Ukrainian, Kalam won't work. Let's provide a better default if needed.
+  \newif\ifloadkalam
+  \newcommand{\entryfont}{\sffamily}
+
   \AtBeginDocument{
+    \loadkalamfalse
+
     \@ifpackageloaded{babel}{
-      \iflanguage{ukrainian}{
-        \setfontfamily\entryfont{DejaVu Sans}
-      }{}
-      \iflanguage{russian}{
-        \setfontfamily\entryfont{DejaVu Sans}
-      }{}
+      \loadkalamtrue
+
+      \edef\languk{ukrainian}
+      \edef\langru{russian}
+      
+      \edef\mainlang{\@ifundefined{bbl@main@language}{}{\bbl@main@language}}
+      \edef\curlang{\languagename}
+
+      \ifx\mainlang\languk \loadkalamfalse \fi
+      \ifx\mainlang\langru \loadkalamfalse \fi
+      
+      \ifx\curlang\languk \loadkalamfalse \fi
+      \ifx\curlang\langru \loadkalamfalse \fi
     }{}
+
+    \ifloadkalam
+      \setfontfamily\entryfont{Kalam}[
+        Path=template/fonts/,
+        Extension=.ttf,
+        UprightFont=Kalam-Regular,
+        BoldFont=Kalam-Bold,
+      ]
+    \else
+      \setfontfamily\entryfont{DejaVu Sans}
+    \fi
   }
 \fi
+\makeatother
 
 % HEADER BACKGROUND COLOR AND OPACITY
 \newrgbcolor{header-background-color}{0.87058824 0.87450981 0.87450981}
