@@ -84,10 +84,14 @@
 
 \rput[cc](409.580659095,40.76616174){\scriptsize \textcolor{secondary-indicator-color}{\textbf{\textsf{\equipmentatname}}}}
 
-\rput[cc](660.73142704,799.27275150){\tiny \textcolor{secondary-indicator-color}{\textsf{\personalitytraitsatname}}}
-\rput[cc](660.73142704,725.90488667){\tiny \textcolor{secondary-indicator-color}{\textsf{\idealsatname}}}
-\rput[cc](660.73142704,651.45182186){\tiny \textcolor{secondary-indicator-color}{\textsf{\bondsatname}}}
-\rput[cc](660.73142704,578.48089036 ){\tiny \textcolor{secondary-indicator-color}{\textsf{\flawsatname}}}
+\ifSingleBackground
+	\rput[cc](660.73142704,578.48089036){\tiny \textcolor{secondary-indicator-color}{\textsf{\backgroundatname}}}
+\else
+	\rput[cc](660.73142704,799.27275150){\tiny \textcolor{secondary-indicator-color}{\textsf{\personalitytraitsatname}}}
+	\rput[cc](660.73142704,725.90488667){\tiny \textcolor{secondary-indicator-color}{\textsf{\idealsatname}}}
+	\rput[cc](660.73142704,651.45182186){\tiny \textcolor{secondary-indicator-color}{\textsf{\bondsatname}}}
+	\rput[cc](660.73142704,578.48089036 ){\tiny \textcolor{secondary-indicator-color}{\textsf{\flawsatname}}}
+\fi
 
 \rput[cc](660.887985695,40.76616174){\scriptsize \textcolor{secondary-indicator-color}{\textbf{\textsf{\featurestraitsatname}}}}
 

@@ -1152,3 +1152,8 @@
 \newcommand{\NinthLevelSpellSlotFPrepared}[1]{\ifthenelse{\equal{#1}{True}}{\newrgbcolor{level9prepared6}{0 0 0}}{\newrgbcolor{level9prepared6}{1 1 1}}}
 \newrgbcolor{level9prepared7}{1 1 1}
 \newcommand{\NinthLevelSpellSlotGPrepared}[1]{\ifthenelse{\equal{#1}{True}}{\newrgbcolor{level9prepared7}{0 0 0}}{\newrgbcolor{level9prepared7}{1 1 1}}}
+
+% TOGGLE FOR SINGLE BACKGROUND BLOCK
+\newif\ifSingleBackground
+\SingleBackgroundfalse
+\newcommand{\ToggleSingleBackground}{\SingleBackgroundtrue}
