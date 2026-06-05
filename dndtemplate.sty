@@ -80,7 +80,16 @@
 % COLOR INDICATORS
 \newrgbcolor{primary-indicator-color}{0 0 0}
 \newrgbcolor{secondary-indicator-color}{0.1 0.1 0.1}
-\newrgbcolor{tertiary-indicator-color}{0.6 0.6 0.6}
+\ExplSyntaxOn
+\bool_if:NTF \l__dnd_show_background_bool
+  {
+    \definecolor{tertiary-indicator-color}{rgb}{0.6, 0.6, 0.6}
+    \newcommand{\italicifprint}[1]{#1}
+  }{
+    \definecolor{tertiary-indicator-color}{rgb}{0.1, 0.1, 0.1}
+    \newcommand{\italicifprint}[1]{\textit{\tiny{#1}}}
+  }
+\ExplSyntaxOff
 
 % SPELL HEADER COLOR AND BACKGROUND OPACITY
 \pgfmathsetmacro{\spellheaderbackgroundopacity}{0}
